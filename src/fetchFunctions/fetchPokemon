@@ -1,0 +1,15 @@
+const fetchPokemon = async (pokemon) => {
+  const res = await fetch(`https://pokeapi.co/api/v2/pokemon/${pokemon}`, {
+    method: "GET",
+    headers: {
+      "Content-Type": "application/json",
+    },
+  });
+  if (!res.ok) {
+    throw new Error("Error fetching pokemon");
+  }
+  const data = await res.json();
+  return data;
+};
+
+export default fetchPokemon;
